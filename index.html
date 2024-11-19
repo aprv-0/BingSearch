@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Multi-Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Multi-Search Tool</h1>
+    <p>Click the buttons below to search 50 random things in two slots.</p>
+    <button id="slot1Button">Search First 20 on Bing</button>
+    <button id="slot2Button">Search Next 30 on Bing</button>
+
+    <script>
+        const searchQueries = [
+            "how to bake a cake", "latest tech news", "chess strategies for beginners", 
+            "fun facts about space", "how to learn guitar", "top movies of 2024", 
+            "history of artificial intelligence", "programming tutorials for Python", 
+            "yoga exercises for beginners", "best tourist places in the world", 
+            "healthy breakfast recipes", "future of quantum computing", 
+            "why is the sky blue", "how to meditate effectively", "top Android apps 2024", 
+            "best budget laptops", "understanding blockchain", "difference between AI and ML", 
+            "how to build a website", "tips for studying effectively", 
+            "best coding practices", "how to stay fit at home", "learning a new language fast", 
+            "solar system facts", "most dangerous animals", "how to save money", 
+            "travel hacks for 2024", "books to read this year", "mental health tips", 
+            "latest gadgets", "how to set goals", "time management skills", 
+            "coding interview preparation", "best programming languages 2024", 
+            "simple DIY projects", "famous painters in history", "how to grow vegetables at home", 
+            "how airplanes work", "best video editing software", "how to stay motivated", 
+            "latest breakthroughs in science", "how to start freelancing", 
+            "most beautiful beaches", "understanding black holes", "benefits of yoga", 
+            "how to get better sleep", "tips for mindfulness", "history of computers", 
+            "importance of soft skills", "how to improve focus"
+        ];
+
+        function searchSlot(startIndex, endIndex) {
+            for (let i = startIndex; i < endIndex; i++) {
+                const query = searchQueries[i];
+                window.open(`https://www.bing.com/search?q=${encodeURIComponent(query)}`, '_blank');
+            }
+        }
+
+        document.getElementById('slot1Button').addEventListener('click', () => {
+            searchSlot(0, 20); // First 20 searches
+        });
+
+        document.getElementById('slot2Button').addEventListener('click', () => {
+            searchSlot(20, 50); // Next 30 searches
+        });
+    </script>
+</body>
+</html>
